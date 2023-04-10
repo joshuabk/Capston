@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+<div class="jumbotron">
+    <h1 class="display-4">Enter Image Prompt</h1>
+        
+</div>
+
+<form class="form-inline my-2 my-lg-0" method = "POST" action = "{% url 'Import' %}" enctype="multipart/form-data" >
+    {% csrf_token %}
+   
+    <input class="form-control mr-sm-2" type="file" name="image">
+    
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Import Image</button>
+    
+</form>
+<div class = "mt-5">
+    <h5>{{response}}</h5>
+    <h3>{{breed}}</h3>
+
+    <img src="{{image1.Image.url}}" alt="dog pic" style="width:500px;height:600px;">
+</div>
+
+{%endblock%}
